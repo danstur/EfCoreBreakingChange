@@ -50,8 +50,7 @@ namespace EfCoreBreakingChange
         {
             builder.Property<int>("Id");
             builder.HasKey("Id");
-            builder.Property(p => p.SiteId)
-                .HasColumnName("SapSiteId");
+            builder.Property(p => p.SiteId);
         }
     }
 

@@ -1,6 +1,18 @@
 ﻿use master;
 
+DROP DATABASE TestDb
+GO
+
 CREATE DATABASE TestDb
+GO
+
+use TestDb;
+
+CREATE TABLE [Site] (
+	[Id] int IDENTITY(1,1) NOT NULL,
+	[SiteId] nvarchar(4) NOT NULL,
+	CONSTRAINT [PK_BAR] PRIMARY KEY ([Id])
+)
 GO
 
 CREATE TABLE OutboundDelivery(
@@ -10,11 +22,5 @@ CREATE TABLE OutboundDelivery(
 	CONSTRAINT [FK_BAR_FOO] 
 		FOREIGN KEY ([SenderId])     
 		REFERENCES [Site](Id)  
-);
-
-CREATE TABLE [Site] (
-	[Id] int IDENTITY(1,1) NOT NULL,
-	[SapSiteId] nvarchar(4) NOT NULL,
-	CONSTRAINT [PK_BAR] PRIMARY KEY ([Id])
 )
 GO
